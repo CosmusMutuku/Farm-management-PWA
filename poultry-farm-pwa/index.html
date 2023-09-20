@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <title>Poultry Farm Management</title>
+</head>
+<body>
+    <h1>Daily Records</h1>
+    <form id="recordForm">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time">
+
+        <label for="foodAmount">Food Amount (kg):</label>
+        <input type="number" id="foodAmount" name="foodAmount" required>
+
+        <label for="waterAmount">Water Amount (liters):</label>
+        <input type="number" id="waterAmount" name="waterAmount" required>
+
+        <label for="birdState">Bird State:</label>
+        <select id="birdState" name="birdState">
+            <option value="Good">Good</option>
+            <option value="Bad">Bad</option>
+            <option value="Worse">Worse</option>
+            <option value="Best">Best</option>
+        </select>
+
+        <label for="attentionBird">Bird Needs Attention:</label>
+        <input type="checkbox" id="attentionBird" name="attentionBird">
+
+        <label for="birdProblem">Bird Problem:</label>
+        <input type="text" id="birdProblem" name="birdProblem">
+
+        <label for="attentionRoom">Birds in Attention Room:</label>
+        <input type="number" id="attentionRoom" name="attentionRoom">
+
+        <label for="weather">Weather:</label>
+        <input type="text" id="weather" name="weather">
+
+        <label for="eggs">Number of Eggs:</label>
+        <input type="number" id="eggs" name="eggs">
+
+        <label for="deaths">Number of Deaths:</label>
+        <input type="number" id="deaths" name="deaths">
+
+        <label for="manure">Manure Collected:</label>
+        <input type="checkbox" id="manure" name="manure">
+
+        <label for="birdsSold">Number of Birds Sold:</label>
+        <input type="number" id="birdsSold" name="birdsSold">
+
+        <label for="recommendation">Recommendation:</label>
+        <textarea id="recommendation" name="recommendation"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

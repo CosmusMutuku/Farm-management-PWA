@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1{
+        font-size: 36px;
+        color: #4CAF50;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 28px;
+        color: #333;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      h3 {
+        font-size: 24px;
+        color: #666;
+        margin-top: 20px;
+      }
+
+      label {
+        display:block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      input[type="date"],
+      input[type="text"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        padding:10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      table {
+        width: 100%;
+        margin-top: 10px;
+        border-collapse: collapse;
+      }
+
+      th, td{
+        padding:10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+
+      th {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      .form-section{
+        margin-bottom: 20px;
+      }
+
+      .form-navigation{
+        margin-top: 20px;
+      }
+
+      button[type="button"], button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      footer {
+        text-align:center;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+      }
+      .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .header img {
+        margin-right: 10px;
+      }
+
+    </style>
+    <title>Rising Star Farm Management</title>
+</head>
+<body>
+  <div class="header">
+    <h1>Rising Star Farm Management</h1>
+    <img src="logo.jpg" alt="Rising Star Farm Logo" width="150" height="80">
+  </div>
+
+  <h2>Daily State Records</h2>
+
+<!-- Form 1: Date and Time -->
+<form id="dateAndTimeForm">
+    <h3>Date and Time</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="date" id="date" name="date" required></td>
+                <td><input type="time" id="time" name="time"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+<!-- Form 2: Food and Water -->
+<form id="foodAndWaterForm">
+    <h3>Food and Water</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Food Amount (kg)</th>
+                <th>Water Amount (liters)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="number" id="foodAmount" name="foodAmount" required></td>
+                <td><input type="number" id="waterAmount" name="waterAmount" required></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+<!-- Form 3: Bird State, Birds in Attention, Specific Problem, Birds in Attention Room, Weather, Number of Deaths -->
+<form id="birdStateForm">
+    <h3>Bird State</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Birds State</th>
+                <th>Birds in Attention</th>
+                <th>Specific Problem</th>
+                <th>Birds in Attention Room</th>
+                <th>Weather</th>
+                <th>Number of Deaths</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <select id="birdState" name="birdState">
+                        <option value="Better">Better</option>
+                        <option value="Good">Good</option>
+                        <option value="Bad">Bad</option>
+                        <option value="Worse">Worse</option>
+                    </select>
+                </td>
+                <td><input type="number" id="Birdsinattention" name="Birdsinattention"></td>
+                <td><input type="text" id="specificProblem" name="specificProblem"></td>
+                <td><input type="number" id="attentionRoom" name="attentionRoom"></td>
+                <td>
+                    <select id="weather" name="weather">
+                        <option value="Hot">Hot</option>
+                        <option value="Cool">Cool</option>
+                        <option value="Rainy">Rainy</option>
+                        <option value="Normal">Normal</option>
+                    </select>
+                </td>
+                <td><input type="number" id="deaths" name="deaths"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+<!-- Form 4: Recommendation -->
+<form id="recommendationForm">
+    <h3>Recommendation</h3>
+    <textarea id="recommendation" name="recommendation"></textarea>
+    <div class="form-navigation">
+        <button id="saveButton" type="submit">Save</button>
+    </div>
+</form>
+
+
+    <!-- Input Costs Section -->
+<h2>Input Costs</h2>
+<form id="inputCostsForm">
+    <h3>Feeds</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+                <th>Where Purchased</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="date" id="feedsDate" name="feedsDate" required></td>
+                <td><input type="text" id="feedsName" name="feedsName" required></td>
+                <td><input type="number" id="feedsQuantity" name="feedsQuantity" required></td>
+                <td><input type="number" id="feedsUnitPrice" name="feedsUnitPrice" required></td>
+                <td><input type="number" id="feedsTotal" name="feedsTotal" readonly></td>
+                <td><input type="text" id="feedsWherePurchased" name="feedsWherePurchased" required></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Drugs</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+                <th>Where Purchased</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="date" id="drugsDate" name="drugsDate" required></td>
+                <td><input type="text" id="drugsName" name="drugsName" required></td>
+                <td><input type="number" id="drugsQuantity" name="drugsQuantity" required></td>
+                <td><input type="number" id="drugsUnitPrice" name="drugsUnitPrice" required></td>
+                <td><input type="number" id="drugsTotal" name="drugsTotal" readonly></td>
+                <td><input type="text" id="drugsWherePurchased" name="drugsWherePurchased" required></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Vaccines</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+                <th>Where Purchased</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="date" id="vaccinesDate" name="vaccinesDate" required></td>
+                <td><input type="text" id="vaccinesName" name="vaccinesName" required></td>
+                <td><input type="number" id="vaccinesQuantity" name="vaccinesQuantity" required></td>
+                <td><input type="number" id="vaccinesUnitPrice" name="vaccinesUnitPrice" required></td>
+                <td><input type="number" id="vaccinesTotal" name="vaccinesTotal" readonly></td>
+                <td><input type="text" id="vaccinesWherePurchased" name="vaccinesWherePurchased" required></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Building Materials</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+                <th>Where Purchased</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="date" id="buildingMaterialsDate" name="buildingMaterialsDate" required></td>
+                <td><input type="text" id="buildingMaterialsName" name="buildingMaterialsName" required></td>
+                <td><input type="number" id="buildingMaterialsQuantity" name="buildingMaterialsQuantity" required></td>
+                <td><input type="number" id="buildingMaterialsUnitPrice" name="buildingMaterialsUnitPrice" required></td>
+                <td><input type="number" id="buildingMaterialsTotal" name="buildingMaterialsTotal" readonly></td>
+                <td><input type="text" id="buildingMaterialsWherePurchased" name="buildingMaterialsWherePurchased" required></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Others</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+                <th>Where Purchased</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="date" id="othersDate" name="othersDate" required></td>
+                <td><input type="text" id="othersName" name="othersName" required></td>
+                <td><input type="number" id="othersQuantity" name="othersQuantity" required></td>
+                <td><input type="number" id="othersUnitPrice" name="othersUnitPrice" required></td>
+                <td><input type="number" id="othersTotal" name="othersTotal" readonly></td>
+                <td><input type="text" id="othersWherePurchased" name="othersWherePurchased" required></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Total Cost of Inputs:</h3>
+    <input type="number" id="totalInputCosts" name="totalInputCosts" readonly>
+
+    <!-- Add a Save button here -->
+    <div class="form-navigation">
+        <button id="saveInputCostsButton" type="button" onclick="saveInputCostsData()">Save</button>
+    </div>
+
+</form>
+<h2>Production</h2>
+
+<!-- Eggs -->
+<form id="eggsForm">
+<h3>Eggs</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Number of Eggs Collected</th>
+            <th>Unsellable Eggs</th>
+            <th>Eggs Sold</th>
+            <th>Eggs Put in Incubator</th>
+            <th>Hatched Chicks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="date" id="eggsDate" name="eggsDate" required></td>
+            <td><input type="number" id="eggsCollected" name="eggsCollected" required></td>
+            <td><input type="number" id="unsellableEggs" name="unsellableEggs" required></td>
+            <td><input type="number" id="soldEggs" name="soldEggs" required></td>
+            <td><input type="number" id="eggsIncubator" name="eggsIncubator" required></td>
+            <td><input type="number" id="hatchedChicks" name="hatchedChicks" required></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Birds Sold -->
+<form id="birdsSoldForm">
+<h3>Birds Sold</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Number of Birds Sold</th>
+            <th>Meat (kg)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="number" id="birdsSold" name="birdsSold" required></td>
+            <td><input type="number" id="meatKgs" name="meatKgs" required></td>
+        </tr>
+    </tbody>
+</table>
+<div class="form-navigation">
+    <button id="saveBirdsSoldButton" type="button" onclick="saveBirdsSoldData()">Save</button>
+</div>
+</form>
+
+
+    </form>
+    <!-- Output Section -->
+    <h2>Output</h2>
+    <form id="outputForm">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Egg Sales</th>
+                    <th>Chick Sales</th>
+                    <th>Bird Sales</th>
+                    <th>Manure Sales</th>
+                    <th>Total Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><input type="date" id="outputDate" name="outputDate" required></td>
+                  <td><input type="number" id="eggSales" name="eggSales" required></td>
+                  <td><input type="number" id="chickSales" name="chickSales" required></td>
+                  <td><input type="number" id="birdSales" name="birdSales" required></td>
+                  <td><input type="number" id="manureSales" name="manureSales" required></td>
+                  <td><input type="number" id="totalSales" name="totalSales" readonly></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="submit">Submit</button>
+    </form>
+    <!-- Reports/History Section -->
+    <h2>Reports/History</h2>
+    <div>
+        <!-- Button to View Historical Data -->
+        <button id="viewHistoryButton">View Historical Data</button>
+    </div>
+
+    <!-- Placeholder for State Records History -->
+    <div id="stateRecordsHistory" style="display: none;">
+        <h3>State Records History</h3>
+        <!-- Add your table or data display here for state records history -->
+    </div>
+
+    <!-- Placeholder for Input Records History -->
+    <div id="inputRecordsHistory" style="display: none;">
+        <h3>Input Records History</h3>
+        <!-- Add your table or data display here for input records history -->
+    </div>
+
+    <!-- Placeholder for Output Records History -->
+    <div id="outputRecordsHistory" style="display: none;">
+        <h3>Output Records History</h3>
+        <!-- Add your table or data display here for output records history -->
+    </div>
+
+    <!-- Placeholder for Profitability History -->
+    <div id="profitabilityHistory" style="display: none;">
+        <h3>Profitability History</h3>
+        <!-- Add your table or data display here for profitability history -->
+    </div>
+    <!-- Copyright Information -->
+    <footer>&copy; Developed by Cosmus Mutuku, 2023</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
