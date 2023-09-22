@@ -13,6 +13,7 @@ const deathsInput = document.querySelector('#deaths');
 const recommendationInput = document.querySelector('#recommendation');
 const nextButton = document.querySelector('#nextButton');
 
+
 // Input Costs variables
 const feedsQuantityInput = document.querySelector('#feedsQuantity');
 const feedsUnitPriceInput = document.querySelector('#feedsUnitPrice');
