@@ -4,6 +4,7 @@ const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
+
 // Define API routes and controllers here
 app.use('/api/daily-records', require('./routes/dailyRecords'));
 app.use('/api/expenses', require('./routes/expenses'));
