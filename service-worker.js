@@ -3,6 +3,7 @@ const STATIC_CACHE = 'poultry-farm-static-v2';
 const DYNAMIC_CACHE = 'poultry-farm-dynamic-v2';
 const OFFLINE_PAGE = 'offline.html'; // Create an offline page
 
+
 const STATIC_FILES = [
   '/',
   'index.html',
