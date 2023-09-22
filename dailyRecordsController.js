@@ -5,6 +5,7 @@ function calculateTotalExpenses() {
   // Implement logic to calculate total expenses from the database (e.g., SQL query)
 }
 
+
 function calculateTotalRevenue() {
   // Implement logic to calculate total revenue from the database (e.g., SQL query)
 }
