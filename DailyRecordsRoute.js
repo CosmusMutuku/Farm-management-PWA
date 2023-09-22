@@ -5,6 +5,7 @@ const dailyRecordsController = require('../controllers/dailyRecordsController');
 // Create a new daily record
 router.post('/', dailyRecordsController.create);
 
+
 // Get all daily records
 router.get('/', dailyRecordsController.getAll);
 
