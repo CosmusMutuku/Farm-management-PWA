@@ -10,6 +10,7 @@ const DailyRecordsForm = () => {
     // Add more fields as needed
   });
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
